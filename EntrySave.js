@@ -55,9 +55,9 @@
             window.alert('로그인을 해주세요.')
         }
     }else {
-        e = document.getElementsByTagName('iframe')[0].contentWindow
-        id = e.user._id
-        nickname = e.user.nickname
+        E = document.getElementsByTagName('iframe')[0].contentWindow
+        id = E.user._id
+        nickname = E.user.nickname
         user_id = (await (await fetch("/graphql", {
             method: "POST",  
             headers: {
@@ -66,7 +66,7 @@
                     "CSRF-Token":csrf,
                     "x-token": xtoken
                     },
-            body:JSON.stringify({
+            body: JSON.stringify({
                 query: `
                     query($nickname: String) {
                         user(nickname:$nickname) {
@@ -81,7 +81,7 @@
         })).json()).data.user
         if (user_id != null){
             if (user_id.id == id){
-                e.Entry.container.getObject(e.Entry.variableContainer.getVariableByName('줄바꿈').object_).clonedEntities[0].setText(e.user._id)
+                E.Entry.container.getObject(E.Entry.variableContainer.getVariableByName('줄바꿈').object_).clonedEntities[0].setText(e.user._id)
             }else{
                 await fetch("/graphql", {
                     method: "POST",
