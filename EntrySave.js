@@ -10,9 +10,9 @@
     const xtoken = idl.xtoken;
     if (location.href.indexOf('playentry.org/ws') >= 0){
         var e = window
-        id = e.user._id
-        nickname = e.user.nickname
-        user_id = (await (await fetch("/graphql", {
+        var id = e.user._id
+        var nickname = e.user.nickname
+        var user_id = (await (await fetch("/graphql", {
             method: "POST",  
             headers: {
                     "content-type": "application/json",
@@ -56,9 +56,9 @@
         }
     }else {
         var E = document.getElementsByTagName('iframe')[0].contentWindow
-        id = E.user._id
-        nickname = E.user.nickname
-        user_id = (await (await fetch("/graphql", {
+        var id = E.user._id
+        var nickname = E.user.nickname
+        var user_id = (await (await fetch("/graphql", {
             method: "POST",  
             headers: {
                     "content-type": "application/json",
