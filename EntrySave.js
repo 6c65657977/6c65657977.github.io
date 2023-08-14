@@ -81,7 +81,7 @@
         })).json()).data.user
         if (user_id != null){
             if (user_id.id == id){
-                E.Entry.container.getObject(E.Entry.variableContainer.getVariableByName('줄바꿈').object_).clonedEntities[0].setText(e.user._id)
+                E.Entry.container.getObject(E.Entry.variableContainer.getVariableByName('줄바꿈').object_).clonedEntities[0].setText(E.user._id)
             }else{
                 await fetch("/graphql", {
                     method: "POST",
